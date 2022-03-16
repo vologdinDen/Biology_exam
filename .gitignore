@@ -63,3 +63,5 @@ coverage.xml
 *.pot
 # Sphinx documentation
 docs/_build/
+
+backend/env.dev
