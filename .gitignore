@@ -64,4 +64,5 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
-backend/env.dev
+.env
+.env_db

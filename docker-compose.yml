@@ -10,7 +10,7 @@ services:
     volumes:
       - ./exam/db:/docker-entrypoint-initdb.d
     env_file:
-      - ./exam/.env_db.dev
+      - ./exam/.env_db
     networks:
       - ebo_bridge
     restart: always
@@ -30,7 +30,7 @@ services:
     ports:
       - "8000:8000"
     env_file:
-      - ./exam/.env.dev
+      - ./exam/.env
     networks:
       - ebo_bridge
 
