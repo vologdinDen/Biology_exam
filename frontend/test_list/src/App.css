@@ -1,0 +1,48 @@
+.question_section{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-around;
+  text-align: center;
+  background-color: rgb(13, 11, 116);
+  height: 100px;
+  color: white;
+}
+
+
+.answer_section{
+  display: flex;
+  flex-direction: column;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  height: 150px;
+  color: white;
+}
+
+.next_question_button{
+  display: inline-block;
+  background-color: rgb(13, 11, 116);
+  text-align: center;
+  color: white;
+  border-radius: 12px;
+
+}
+
+.next_question_button:hover{
+  background-color: white;
+  color: rgb(13, 11, 116);
+}
+
+
+.image_section{
+  text-align: center;
+}
+
+.app{
+  background-image: url('background.jpeg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 200vh;
+}

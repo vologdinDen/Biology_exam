@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./exam/db:/docker-entrypoint-initdb.d
+    env_file:
+      - ./exam/.env_db.dev
+    networks:
+      - ebo_bridge
+    restart: always
+
+  exam_app:
+    restart: unless-stopped
+    container_name: exam_app
+    command: bash -c "python /exam_app/backend/manage.py runserver 0.0.0.0:8000 --insecure"
+    entrypoint: /exam_app/docker/backend/wsgi-entrypoint.sh
+    build: 
+      context: .
+      dockerfile: ./docker/backend/Dockerfile
+    depends_on:
+      - mysql
+    expose:
+      - "8000"
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./exam/.env.dev
+    networks:
+      - ebo_bridge
+
+networks:
+  ebo_bridge:
